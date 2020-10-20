@@ -35,6 +35,10 @@ header {
     display: flex;
 }
 
+#hamburger {
+    display: none;
+}
+
 #logo {
     align-self: flex-start;
     width: 4.5rem;
@@ -77,6 +81,10 @@ main {
 
 .hidden {
 	display: none;
+}
+
+.mobile__img__container {
+    display: none;
 }
 
 .hero__img {
@@ -139,18 +147,28 @@ h1 {
     color: var(--dark-gray);
 }
 
-.slider__controls__desktop {
+.slider__controls {
 	position: absolute;
-	bottom: 0;
-    left: 0;
-    width: 26%;
-    height: 5.5rem;
     background-color: var(--black);
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.slider__controls__desktop button {
+.desktop {
+	bottom: 0;
+    left: 0;
+    width: 26%;
+    height: 5.5rem;
+}
+
+.mobile {
+    bottom: 0;
+    right: 0;
+    width: 26%;
+    height: 5.5rem;
+}
+
+.slider__controls button {
     background-color: transparent;
     border: none;
     color: var(--dark-gray);
@@ -158,11 +176,11 @@ h1 {
     outline: none;
 }
 
-.slider__controls__desktop button:hover {
+.slider__controls button:hover {
     background-color: var(--very-dark-gray);
 }
 
-.slider__controls__desktop img {
+.slider__controls img {
     max-width: 100%;
     height: auto;
 }
@@ -222,7 +240,83 @@ footer {
 }
 
 @media (max-width: 600px) {
-	footer {
-		position: static;
+    html {
+        font-size: 50%;
+    }
+
+    header {
+        z-index: 10;
+    }  
+
+    .hidden__mobile {
+        display: none;
+    }
+
+    #logo {
+        position: fixed;
+        width: auto;
+        margin: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #hamburger {
+        display: block;
+        position: fixed;
+    }
+
+    nav {
+        background-color: var(--white);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 5rem;
+    }
+
+    nav ul {
+        color: var(--black);
+        font-size: 1.2rem;
+    }
+
+    main {
+        display: block;
+        position: relative;
+        top: 0;
+    }
+
+    .hero__section {
+        display: block;
+    }
+
+    .mobile__img__container {
+        display: block;
+        position: relative;
+        height: fit-content;
+    }
+
+    .mobile__img__container > img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero__content, .about__content {
+        margin: 5rem 0;
+        padding: 0 5rem;
+    }
+
+    .desktop, .hero__img, .hidden {
+        display: none;
+    }
+
+    #about {
+        display: block;
+    }
+
+	#attribution {
+        position: static;
 	}
 }
